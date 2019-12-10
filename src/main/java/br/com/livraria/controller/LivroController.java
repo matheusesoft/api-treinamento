@@ -113,7 +113,8 @@ public class LivroController {
 	@ApiOperation(value = "Buscar livro passando nome por parâmetro.")
 	@GetMapping
 	public ResponseEntity<Livro> buscaPorNome(@RequestParam("nome") String nome) {
-		return ResponseEntity.ok(livroRepository.findByNome(nome));
+		Livro livro = livroRepository.findByNome(nome);
+		return ResponseEntity.ok(livro);
 	}
 	
 	@ApiOperation(value = "Atualizar livro.")
